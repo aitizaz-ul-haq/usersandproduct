@@ -1,4 +1,4 @@
-const { response } = require('express');
+
 // including bridge model
 const { Bridge } = require('../models/bridge.model')
 

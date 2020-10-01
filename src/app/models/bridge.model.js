@@ -22,7 +22,7 @@ const bridgeSchema = mongoose.Schema({
 });
 
 // creating product model
-const Bridge = ("bridge", bridgeSchema);
+const Bridge = mongoose.model('bridge', bridgeSchema);
 
 // exporting bridge
 module.exports = {
