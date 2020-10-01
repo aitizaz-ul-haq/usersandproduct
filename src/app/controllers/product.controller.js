@@ -1,6 +1,8 @@
+// adding product model to product cotroller
 const { Product } = require('../models/product.model')
-const { User } = require('../models/user.model')
 
+
+// Add a product
 const addProduct = async (req, res) => {
     try {
         const { productName, productCatagory} = req.body
@@ -23,6 +25,7 @@ const addProduct = async (req, res) => {
     }
 }
 
+// get all product from db
 const getProduct = async (req, res) => {
     try {
 
@@ -41,6 +44,7 @@ const getProduct = async (req, res) => {
     }
 }
 
+// update a product information in db
 const updateProductInfo = async (req, res) => {
     try { 
         const id = req.params.id;
@@ -64,6 +68,7 @@ const updateProductInfo = async (req, res) => {
     }
 }
 
+// get product in db with product id
 const getproductByID = async (req, res) => {
     try { 
         const id = req.params.id;
@@ -88,6 +93,7 @@ const getproductByID = async (req, res) => {
     }
 }
 
+// delete a product saved in db
 const deleteProduct = async (req, res) => {
     try {
 
@@ -107,6 +113,7 @@ const deleteProduct = async (req, res) => {
     }
 }
 
+// exporting  controller functions
 module.exports = {
     addProduct,
     getProduct,

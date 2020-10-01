@@ -1,18 +1,22 @@
-const mongoose = require('mongoose')
+// adding mongoose middleware
+const mongoose = require("mongoose");
 
+// creating schema using mongoose
 const productSchema = mongoose.Schema({
-    productName: {
-        type: String,
-        require: true
-    },
-    productCatagory: {
-        type: String,
-        requier: true
-    }
-})
+  productName: {
+    type: String,
+    require: true,
+  },
+  productCatagory: {
+    type: String,
+    requier: true,
+  },
+});
 
-const Product = mongoose.model('product', productSchema)
+// creating product model using mongoose middleware
+const Product = mongoose.model("product", productSchema);
 
+// exporting product model
 module.exports = {
-    Product
-}
+  Product,
+};
