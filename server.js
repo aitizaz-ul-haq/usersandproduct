@@ -20,6 +20,7 @@ app.use(cors())
 // adding routes
 require('./src/app/routes/user.route')(app);
 require('./src/app/routes/product.route')(app);
+require('./src/app/routes/bridge.route')(app);
 
 // creating default port
 const port = process.env.PORT || 4000
