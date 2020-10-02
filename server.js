@@ -9,10 +9,10 @@ require('dotenv').config()
 require('./src/config/db.config')
 
 // bodyparser urlencoded
-app.use( bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false }))
 
 // bodyparser json
-app.use( bodyParser.json())
+app.use(bodyParser.json())
 
 // adding cors
 app.use(cors())
@@ -23,7 +23,9 @@ require('./src/app/routes/product.route')(app);
 require('./src/app/routes/bridge.route')(app);
 
 // creating default port
-const port = process.env.PORT || 4000
+const port = process.env.PORT || 4000;
+
+
 
 // running server
 app.listen(port, () => {
@@ -37,6 +39,9 @@ app.get('/', (req, res) => {
         message: `welcome to home page`
     })
 })
+
+
+require('./src/utils/error-handler.utils')(app);
 
 
 
