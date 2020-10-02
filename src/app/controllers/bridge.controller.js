@@ -44,7 +44,7 @@ const getUserProducts = async (req, res, next) => {
 
       const userData = await User.findOne({ _id: userId }).lean();
 
-      const productsData = await Products.find({ _id: { $in: anArr } }).lean();
+      const productsData = await Product.find({ _id: { $in: anArr } }).lean();
 
       const response = { user: userData, products: productsData };
 
