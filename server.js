@@ -27,7 +27,7 @@ const port = process.env.PORT || 4000
 
 // running server
 app.listen(port, () => {
-    console.log(`server runningon port ${port}`)
+    console.log(`server is live on port ${port}`)
 })
 
 // creating homepage
