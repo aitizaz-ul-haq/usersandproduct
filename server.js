@@ -36,7 +36,7 @@ app.listen(port, () => {
 app.get('/', (req, res) => {
     res.send({
         status: true,
-        message: `welcome to home page`
+        message: `welcome to ecomm api`
     })
 })
 
