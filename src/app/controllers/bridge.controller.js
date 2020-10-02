@@ -1,16 +1,16 @@
 // including bridge model
 const { Bridge } = require("../models/bridge.model");
+const { User } = require('../models/user.model');
+const { Product } = require('../models/product.model')
 
 // Add bridged data to db
 const addBridgeData = async (req, res) => {
   try {
-    const { username, productchoice, userid, productid } = req.body;
+    const { userId, productId } = req.body;
 
     const response = await Bridge.create({
-      username,
-      productchoice,
-      userid,
-      productid,
+      userId: userId,
+      productId: productId,
     });
 
     return res.status(200).json({
@@ -25,7 +25,40 @@ const addBridgeData = async (req, res) => {
   }
 };
 
+
+const getUserProducts = async (req, res, next) => {
+  try {
+    const { userId } = req.params;
+
+    const user = await Bridge.find({ userId: userId }).lean();
+
+    if (user.length > 0) {
+
+      let anArr = [];
+
+      user.forEach(e => {
+        anArr.push(e.productId);
+      })
+
+      const userData = await User.findOne({ _id: userId }).lean();
+
+      const productsData = await Product.find({ _id: { $in: anArr } }).lean();
+
+      const response = { user: userData, products: productsData };
+
+      return res.status(200).json({ status: true, data: response });
+
+    } else {
+      throw Error('no record found!');
+    }
+
+  } catch (error) {
+    next(error);
+  }
+}
+
 // export model
 module.exports = {
   addBridgeData,
+  getUserProducts
 };

@@ -3,19 +3,11 @@ const mongoose = require("mongoose");
 
 // creating bridge schema with mongoose
 const bridgeSchema = mongoose.Schema({
-  username: {
-    type: String,
-    requied: true,
-  },
-  productchoice: {
+  userId: {
     type: String,
     required: true,
   },
-  userid: {
-    type: String,
-    required: true,
-  },
-  productid: {
+  productId: {
     type: String,
     required: true,
   },
